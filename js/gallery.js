@@ -67,7 +67,7 @@ let instance;
 const ulElem = document.querySelector(".gallery");
 const listCart = images.map(
   ({ preview, original, description }) => ` <li class="gallery-item">
-  <a class="gallery-link" href="${original} download">
+  <a class="gallery-link" href="${original}">
     <img
       class="gallery-image"
       src="${preview}"
@@ -83,7 +83,6 @@ ulElem.innerHTML = listCart1;
 
 function onModalClick(e) {
   e.preventDefault();
-  //   console.log(e.target);
   const imgEl = e.target.closest(".gallery-image");
   if (e.target.nodeName === "IMG") {
     instance = basicLightbox.create(`
@@ -92,8 +91,7 @@ function onModalClick(e) {
       class="gallery-image"
       src="${imgEl.dataset.source}"
       data-source="${imgEl.dataset.source}"
-      alt="${imgEl.dataset.source}"
-    />;  `);
+          />;  `);
     instance.show();
 
     document.addEventListener("keydown", closeModal);
